@@ -92,7 +92,9 @@ export default async function ReservationsPage() {
       ) : (
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {reservations.map((res: any) => {
-            const appointmentDateTime = dayjs(`${res.appointment_date}T${res.appointment_time}`);
+            const appointmentDateTime = dayjs(
+              `${res.appointment_date}T${res.appointment_time}`,
+            );
             const isPast = appointmentDateTime.isBefore(now);
 
             return (
@@ -108,7 +110,7 @@ export default async function ReservationsPage() {
                   position: "relative",
                   "&:hover": {
                     borderColor: isPast ? "#E2E8F0" : "#0D9488",
-                  }
+                  },
                 }}
               >
                 <CardContent sx={{ p: 0, "&:last-child": { pb: 0 } }}>
@@ -122,10 +124,16 @@ export default async function ReservationsPage() {
                         textAlign: "center",
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center"
+                        justifyContent: "center",
                       }}
                     >
-                      <Typography variant="h5" sx={{ fontWeight: 800, color: isPast ? "#64748B" : "inherit" }}>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 800,
+                          color: isPast ? "#64748B" : "inherit",
+                        }}
+                      >
                         {dayjs(res.appointment_date).format("DD")}
                       </Typography>
                       <Typography
@@ -157,26 +165,41 @@ export default async function ReservationsPage() {
                         }}
                       >
                         <Box
-                          sx={{ display: "flex", alignItems: "center", gap: 1.5, flexWrap: "wrap" }}
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.5,
+                            flexWrap: "wrap",
+                          }}
                         >
-                          <Typography variant="h6" sx={{ fontWeight: 700, color: isPast ? "#64748B" : "inherit" }}>
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              fontWeight: 700,
+                              color: isPast ? "#64748B" : "inherit",
+                            }}
+                          >
                             {res.service?.name}
                           </Typography>
                           <Box sx={{ display: "flex", gap: 1 }}>
                             <StatusBadge status={res.status} />
                             {isPast && (
-                              <Chip 
-                                label="Passed" 
-                                size="small" 
-                                icon={<HistoryIcon sx={{ fontSize: "14px !important" }} />}
-                                sx={{ 
-                                  height: 22, 
-                                  fontSize: "0.7rem", 
+                              <Chip
+                                label="Passed"
+                                size="small"
+                                icon={
+                                  <HistoryIcon
+                                    sx={{ fontSize: "14px !important" }}
+                                  />
+                                }
+                                sx={{
+                                  height: 22,
+                                  fontSize: "0.7rem",
                                   fontWeight: 700,
                                   bgcolor: "#E2E8F0",
                                   color: "#475569",
-                                  "& .MuiChip-icon": { color: "#475569" }
-                                }} 
+                                  "& .MuiChip-icon": { color: "#475569" },
+                                }}
                               />
                             )}
                           </Box>
@@ -193,7 +216,11 @@ export default async function ReservationsPage() {
                         }}
                       >
                         <Box
-                          sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 0.5,
+                          }}
                         >
                           <StorefrontIcon sx={{ fontSize: 16 }} />
                           <Typography variant="body2">
@@ -201,7 +228,11 @@ export default async function ReservationsPage() {
                           </Typography>
                         </Box>
                         <Box
-                          sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 0.5,
+                          }}
                         >
                           <AccessTimeIcon sx={{ fontSize: 16 }} />
                           <Typography variant="body2">
@@ -209,7 +240,11 @@ export default async function ReservationsPage() {
                           </Typography>
                         </Box>
                         <Box
-                          sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 0.5,
+                          }}
                         >
                           <PaymentsIcon sx={{ fontSize: 16 }} />
                           <Typography variant="body2">

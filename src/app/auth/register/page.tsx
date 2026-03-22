@@ -78,10 +78,7 @@ export default function RegisterPage() {
           </div>
 
           {error && (
-            <Alert
-              severity="error"
-              sx={{ mb: 3, borderRadius: "12px" }}
-            >
+            <Alert severity="error" sx={{ mb: 3, borderRadius: "12px" }}>
               {error}
             </Alert>
           )}

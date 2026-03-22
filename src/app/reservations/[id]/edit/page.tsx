@@ -24,7 +24,7 @@ export default function EditReservationPage({
   const { id } = use(params);
   const { data: session } = useSession();
   const router = useRouter();
-  
+
   const [date, setDate] = useState<Dayjs | null>(null);
   const [time, setTime] = useState<Dayjs | null>(null);
   const [loading, setLoading] = useState(true);
@@ -120,7 +120,9 @@ export default function EditReservationPage({
           }}
         >
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 3, mb: 4 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 3, mb: 4 }}
+            >
               <DatePicker
                 label="Appointment Date"
                 value={date}
@@ -130,7 +132,9 @@ export default function EditReservationPage({
                   textField: {
                     fullWidth: true,
                     variant: "outlined",
-                    sx: { "& .MuiOutlinedInput-root": { borderRadius: "12px" } },
+                    sx: {
+                      "& .MuiOutlinedInput-root": { borderRadius: "12px" },
+                    },
                   },
                 }}
               />
@@ -142,7 +146,9 @@ export default function EditReservationPage({
                   textField: {
                     fullWidth: true,
                     variant: "outlined",
-                    sx: { "& .MuiOutlinedInput-root": { borderRadius: "12px" } },
+                    sx: {
+                      "& .MuiOutlinedInput-root": { borderRadius: "12px" },
+                    },
                   },
                 }}
               />
@@ -179,7 +185,11 @@ export default function EditReservationPage({
                 "&:hover": { boxShadow: "none" },
               }}
             >
-              {submitting ? <CircularProgress size={24} color="inherit" /> : "Save Changes"}
+              {submitting ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                "Save Changes"
+              )}
             </Button>
           </Box>
         </Box>

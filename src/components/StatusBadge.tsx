@@ -9,7 +9,11 @@ const statusMap: Record<
   { label: string; color: string; borderColor: string }
 > = {
   reserve: { label: "Reserved", color: "#854D0E", borderColor: "#EAB308" },
-  in_progress: { label: "In Progress", color: "#0F766E", borderColor: "#14B8A6" },
+  in_progress: {
+    label: "In Progress",
+    color: "#0F766E",
+    borderColor: "#14B8A6",
+  },
   completed: { label: "Completed", color: "#475569", borderColor: "#94A3B8" },
 };
 

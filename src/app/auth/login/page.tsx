@@ -77,10 +77,7 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <Alert
-              severity="error"
-              sx={{ mb: 3, borderRadius: "12px" }}
-            >
+            <Alert severity="error" sx={{ mb: 3, borderRadius: "12px" }}>
               {error}
             </Alert>
           )}
@@ -136,7 +133,11 @@ export default function LoginPage() {
                 mt: 1,
               }}
             >
-              {loading ? <CircularProgress size={24} color="inherit" /> : "Sign In"}
+              {loading ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                "Sign In"
+              )}
             </Button>
           </form>
 
