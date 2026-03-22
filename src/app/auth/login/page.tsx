@@ -1,97 +1,162 @@
-"use client"
+"use client";
 
-import { signIn } from 'next-auth/react';
-import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Alert from "@mui/material/Alert";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function LoginPage() {
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState<boolean>(false);
-    const [mounted, setMounted] = useState<boolean>(false);
-    const router = useRouter();
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
-    if (!mounted) return null;
+    const result = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-        e.preventDefault();
-        setError(null);
-        setLoading(true);
+    if (result?.error) {
+      setError("Invalid email or password");
+      setLoading(false);
+    } else {
+      router.push("/");
+      router.refresh();
+    }
+  };
 
-        const result = await signIn('credentials', {
-            email,
-            password,
-            redirect: false,
-        });
+  return (
+    <>
+      <main
+        style={{
+          minHeight: "calc(100vh - 64px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(to bottom, #0F172A, #1E293B)",
+          padding: "1.5rem",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "400px",
+            width: "100%",
+            backgroundColor: "white",
+            borderRadius: "1.5rem",
+            padding: "2.5rem",
+            boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.3)",
+          }}
+        >
+          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 700,
+                color: "#1E293B",
+                mb: 1,
+                fontFamily: '"Playfair Display", serif',
+              }}
+            >
+              Welcome Back
+            </Typography>
+            <Typography variant="body2" sx={{ color: "#64748B" }}>
+              Please enter your details to sign in
+            </Typography>
+          </div>
 
-        if (result?.error) {
-            setError("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
-            setLoading(false);
-        } else {
-            router.push('/');
-            router.refresh();
-        }
-    };
+          {error && (
+            <Alert
+              severity="error"
+              sx={{ mb: 3, borderRadius: "12px" }}
+            >
+              {error}
+            </Alert>
+          )}
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-            <div className="max-w-md w-full bg-white rounded-xl shadow-lg border border-gray-100 p-8">
-                <h2 className="text-2xl font-bold text-center mb-6">เข้าสู่ระบบ</h2>
+          <form
+            onSubmit={handleSubmit}
+            style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+          >
+            <TextField
+              fullWidth
+              label="Email Address"
+              type="email"
+              variant="outlined"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              slotProps={{
+                htmlInput: { sx: { py: 1.5 } },
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": { borderRadius: "12px" },
+              }}
+            />
+            <TextField
+              fullWidth
+              label="Password"
+              type="password"
+              variant="outlined"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              slotProps={{
+                htmlInput: { sx: { py: 1.5 } },
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": { borderRadius: "12px" },
+              }}
+            />
 
-                {error && (
-                    <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded text-sm text-center">
-                        {error}
-                    </div>
-                )}
+            <Button
+              fullWidth
+              type="submit"
+              variant="contained"
+              color="secondary"
+              disabled={loading}
+              sx={{
+                py: 1.5,
+                borderRadius: "12px",
+                fontWeight: 700,
+                fontSize: "1rem",
+                textTransform: "none",
+                color: "white",
+                mt: 1,
+              }}
+            >
+              {loading ? <CircularProgress size={24} color="inherit" /> : "Sign In"}
+            </Button>
+          </form>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">อีเมล</label>
-                        <input
-                            type="email"
-                            required
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                            value={email}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">รหัสผ่าน</label>
-                        <input
-                            type="password"
-                            required
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                            value={password}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className={`w-full text-white font-bold py-3 px-4 rounded-lg transition shadow-md ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
-                            }`}
-                    >
-                        เข้าสู่ระบบ
-                    </button>
-                </form>
-
-                <div className="mt-6 text-center">
-                    <Link
-                        href="/auth/register"
-                        className="text-blue-600 hover:text-blue-500 font-bold underline-offset-4 hover:underline"
-                    >
-                        สมัครสมาชิก
-                    </Link>
-                </div>
-            </div>
+          <div style={{ textAlign: "center", marginTop: "2rem" }}>
+            <Typography variant="body2" sx={{ color: "#64748B" }}>
+              Don't have an account?{" "}
+              <Link
+                href="/auth/register"
+                style={{
+                  color: "#0D9488",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
+              >
+                Create Account
+              </Link>
+            </Typography>
+          </div>
         </div>
-    );
+      </main>
+    </>
+  );
 }
