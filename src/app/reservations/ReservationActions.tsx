@@ -6,6 +6,8 @@ import { useState } from "react";
 import { deleteReservation } from "@/libs/reservations";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -24,15 +26,26 @@ export default function ReservationActions({
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState<{
+    open: boolean;
+    message: string;
+    severity: "success" | "error";
+  }>({ open: false, message: "", severity: "success" });
 
   const token = session?.user?.token ?? "";
 
   const handleDelete = async () => {
     setLoading(true);
-    await deleteReservation(reservation._id, token);
+    const res = await deleteReservation(reservation._id, token);
     setLoading(false);
     setOpen(false);
-    router.refresh();
+
+    if (res?.success === false) {
+      setSnackbar({ open: true, message: res.message || "Failed to cancel reservation", severity: "error" });
+    } else {
+      setSnackbar({ open: true, message: "Reservation cancelled successfully", severity: "success" });
+      setTimeout(() => router.refresh(), 1000);
+    }
   };
 
   return (
@@ -104,6 +117,21 @@ export default function ReservationActions({
           </Button>
         </DialogActions>
       </Dialog>
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={4000}
+        onClose={() => setSnackbar((s) => ({ ...s, open: false }))}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          severity={snackbar.severity}
+          onClose={() => setSnackbar((s) => ({ ...s, open: false }))}
+          sx={{ borderRadius: "12px", minWidth: "300px" }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 }
