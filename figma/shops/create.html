@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Shop - MUI Replica</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">AdminPanel</div>
+        <ul>
+            <li>Dashboard</li>
+            <li class="active">Shops</li>
+            <li>Services</li>
+            <li>Bookings</li>
+            <li>Users</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Manage Shops</h1>
+            <button class="btn btn-contained">ADD SHOP</button>
+        </div>
+        <div class="table-container">
+            <!-- Simulated background content -->
+            <div
+                style="height: 48px; border-bottom: 1px solid #e0e0e0; display:flex; align-items:center; background:#f5f5f5;">
+                <span style="flex:1; font-weight:500; padding-left:16px;">Name</span>
+            </div>
+            <div style="height: 48px; border-bottom: 1px solid #e0e0e0; display:flex; align-items:center;">
+                <span style="flex:1; padding-left:16px;">Shop 1</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- The exact Create Modal -->
+    <div class="backdrop">
+        <div class="dialog">
+            <h2 class="dialog-title">Add New Shop</h2>
+            <div class="dialog-content">
+                <div class="text-field" style="margin-top: 8px;">
+                    <label class="text-field-label">Name</label>
+                    <input type="text" class="text-field-input">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Address</label>
+                    <input type="text" class="text-field-input">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Telephone</label>
+                    <input type="text" class="text-field-input">
+                </div>
+            </div>
+            <div class="dialog-actions">
+                <button class="btn btn-text">Cancel</button>
+                <button class="btn btn-contained">Create</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

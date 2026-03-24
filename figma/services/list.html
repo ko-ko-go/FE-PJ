@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Services - MUI Replica</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">AdminPanel</div>
+        <ul>
+            <li>Dashboard</li>
+            <li>Shops</li>
+            <li class="active">Services</li>
+            <li>Bookings</li>
+            <li>Users</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Manage Services</h1>
+            <button class="btn btn-contained">ADD SERVICE</button>
+        </div>
+
+        <div class="toolbar">
+            <input type="text" class="search-field" placeholder="Search Services...">
+        </div>
+
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Duration (mins)</th>
+                        <th>Price (THB)</th>
+                        <th style="text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>50f3...</td>
+                        <td>Thai Traditional Massage</td>
+                        <td>60</td>
+                        <td>500</td>
+                        <td style="text-align: right;">
+                            <button class="icon-btn">✎</button>
+                            <button class="icon-btn">🗑</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>51a2...</td>
+                        <td>Aromatherapy</td>
+                        <td>90</td>
+                        <td>850</td>
+                        <td style="text-align: right;">
+                            <button class="icon-btn">✎</button>
+                            <button class="icon-btn">🗑</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

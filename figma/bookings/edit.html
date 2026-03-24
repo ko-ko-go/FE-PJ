@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Booking - MUI Replica</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">AdminPanel</div>
+        <ul>
+            <li>Dashboard</li>
+            <li>Shops</li>
+            <li>Services</li>
+            <li class="active">Bookings</li>
+            <li>Users</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Manage Bookings</h1>
+            <button class="btn btn-contained">ADD BOOKING</button>
+        </div>
+        <div class="table-container">
+            <div
+                style="height: 48px; border-bottom: 1px solid #e0e0e0; display:flex; align-items:center; background:#f5f5f5;">
+                <span style="flex:1; font-weight:500; padding-left:16px;">Booking ID</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="backdrop">
+        <div class="dialog">
+            <h2 class="dialog-title">Edit Booking</h2>
+            <div class="dialog-content">
+                <div class="text-field" style="margin-top: 8px;">
+                    <label class="text-field-label">Customer User</label>
+                    <select class="text-field-input">
+                        <option>John Doe</option>
+                    </select>
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Shop</label>
+                    <select class="text-field-input">
+                        <option>Shop 1</option>
+                    </select>
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Service</label>
+                    <select class="text-field-input">
+                        <option>Thai Massage (60 mins)</option>
+                    </select>
+                </div>
+                <div class="flex-row">
+                    <div class="text-field">
+                        <label class="text-field-label">Date</label>
+                        <input type="text" class="text-field-input" value="2026-10-12">
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-actions">
+                <button class="btn btn-text">Cancel</button>
+                <button class="btn btn-contained">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

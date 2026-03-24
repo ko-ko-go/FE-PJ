@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Service - MUI Replica</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">AdminPanel</div>
+        <ul>
+            <li>Dashboard</li>
+            <li>Shops</li>
+            <li class="active">Services</li>
+            <li>Bookings</li>
+            <li>Users</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Manage Services</h1>
+            <button class="btn btn-contained">ADD SERVICE</button>
+        </div>
+        <div class="table-container">
+            <div
+                style="height: 48px; border-bottom: 1px solid #e0e0e0; display:flex; align-items:center; background:#f5f5f5;">
+                <span style="flex:1; font-weight:500; padding-left:16px;">Name</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="backdrop">
+        <div class="dialog">
+            <h2 class="dialog-title">Edit Service</h2>
+            <div class="dialog-content">
+                <div class="text-field" style="margin-top: 8px;">
+                    <label class="text-field-label">Service Name</label>
+                    <input type="text" class="text-field-input" value="Thai Traditional Massage">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Description</label>
+                    <input type="text" class="text-field-input" value="Full body relaxing massage">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Duration (mins)</label>
+                    <input type="number" class="text-field-input" value="60">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Price (THB)</label>
+                    <input type="number" class="text-field-input" value="500">
+                </div>
+            </div>
+            <div class="dialog-actions">
+                <button class="btn btn-text">Cancel</button>
+                <button class="btn btn-contained">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

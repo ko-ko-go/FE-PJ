@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fafafa;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* MUI Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .logo {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #616161;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sidebar li.active {
+  background-color: #e0e0e0;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* MUI Content */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+  overflow-y: auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 34px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Dashboard Specifics */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: #757575;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #212121;
+}
+
+/* Lists and Tables */
+.toolbar {
+  display: flex;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.search-field {
+  padding: 10px 14px;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 300px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.table-container {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  padding: 0;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  color: #212121;
+  font-size: 14px;
+}
+
+.table th {
+  background-color: #f5f5f5;
+  font-weight: 500;
+  color: #424242;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #616161;
+}
+
+.icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Modal Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1300;
+}
+
+/* MUI Dialog */
+.dialog {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100% - 64px);
+}
+
+.dialog-title {
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.dialog-content {
+  padding: 20px 24px;
+  overflow-y: auto;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.dialog-actions {
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* MUI Outlined TextField Grayscale */
+.text-field {
+  position: relative;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.text-field-label {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background-color: #ffffff;
+  padding: 0 4px;
+  font-size: 12px;
+  color: #616161;
+  z-index: 1;
+}
+
+.text-field-input {
+  width: 100%;
+  padding: 16.5px 14px;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  background: transparent;
+}
+
+select.text-field-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23616161'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 20px;
+}
+
+.text-field-input:focus {
+  outline: none;
+  border-color: #424242;
+  border-width: 2px;
+  padding: 15.5px 13px;
+}
+
+.flex-row {
+  display: flex;
+  gap: 16px;
+}
+
+/* MUI Buttons Grayscale */
+.btn {
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.btn-text {
+  background-color: transparent;
+  color: #424242;
+}
+
+.btn-text:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.btn-contained {
+  background-color: #424242;
+  color: #ffffff;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.btn-contained:hover {
+  background-color: #212121;
+}

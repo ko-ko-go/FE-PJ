@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User - MUI Replica</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">AdminPanel</div>
+        <ul>
+            <li>Dashboard</li>
+            <li>Shops</li>
+            <li>Services</li>
+            <li>Bookings</li>
+            <li class="active">Users</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Manage Users</h1>
+            <button class="btn btn-contained">ADD USER</button>
+        </div>
+        <div class="table-container">
+            <div
+                style="height: 48px; border-bottom: 1px solid #e0e0e0; display:flex; align-items:center; background:#f5f5f5;">
+                <span style="flex:1; font-weight:500; padding-left:16px;">Name</span>
+                <span style="flex:1; font-weight:500;">Email</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="backdrop">
+        <div class="dialog">
+            <h2 class="dialog-title">Edit User</h2>
+            <div class="dialog-content">
+                <div class="text-field" style="margin-top: 8px;">
+                    <label class="text-field-label">Name</label>
+                    <input type="text" class="text-field-input" value="John Doe">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Email</label>
+                    <input type="email" class="text-field-input" value="john@example.com">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Telephone</label>
+                    <input type="text" class="text-field-input" value="081-234-5678">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Password (Optional)</label>
+                    <input type="password" class="text-field-input" placeholder="Leave blank to keep unchanged">
+                </div>
+                <div class="text-field">
+                    <label class="text-field-label">Role</label>
+                    <select class="text-field-input">
+                        <option value="user" selected>User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dialog-actions">
+                <button class="btn btn-text">Cancel</button>
+                <button class="btn btn-contained">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

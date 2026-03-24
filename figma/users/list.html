@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - MUI Replica</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">AdminPanel</div>
+        <ul>
+            <li>Dashboard</li>
+            <li>Shops</li>
+            <li>Services</li>
+            <li>Bookings</li>
+            <li class="active">Users</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Manage Users</h1>
+            <button class="btn btn-contained">ADD USER</button>
+        </div>
+
+        <div class="toolbar">
+            <input type="text" class="search-field" placeholder="Search Users...">
+        </div>
+
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th style="text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>USR-01</td>
+                        <td>Admin</td>
+                        <td>admin@example.com</td>
+                        <td>admin</td>
+                        <td style="text-align: right;">
+                            <button class="icon-btn">✎</button>
+                            <button class="icon-btn">🗑</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>USR-02</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>user</td>
+                        <td style="text-align: right;">
+                            <button class="icon-btn">✎</button>
+                            <button class="icon-btn">🗑</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
